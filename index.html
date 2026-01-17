@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Nombre Apellido</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuente elegante -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- HERO -->
+  <header class="relative isolate overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
+    <div class="mx-auto max-w-2xl py-24 text-center px-4 text-white">
+      <h1 class="text-5xl font-bold tracking-tight drop-shadow-lg">Dr. Yelin</h1>
+      <p class="mt-3 text-xl opacity-90">Médico Clínico — Escritor — Investigador</p>
+      <p class="mt-6 max-w-md mx-auto text-blue-200 italic opacity-90">
+        “La ciencia avanza cuando nos preguntamos por qué y actuamos para responderlo”.
+      </p>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="bg-white/80 backdrop-blur shadow-md sticky top-0 z-50">
+    <div class="flex justify-center gap-8 py-4 font-semibold text-blue-900">
+      <a href="#sobre-mi" class="hover:text-blue-600">Sobre mí</a>
+      <a href="#libros" class="hover:text-blue-600">Libros</a>
+      <a href="#articulos" class="hover:text-blue-600">Artículos</a>
+      <a href="#contacto" class="hover:text-blue-600">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi" class="max-w-5xl mx-auto px-4 mt-12">
+    <div class="bg-white rounded-2xl shadow-lg p-10">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <img
+          src="https://media.lacapital.com.ar/p/62aa5f795a7ffb0a6c08b9e30c5c5ac3/adjuntos/203/imagenes/024/569/0024569696/1200x675/smart/2018-09-26-lc-59360795jpg.jpg"
+          alt="Foto del Dr."
+          class="rounded-2xl w-56 shadow-lg object-cover"
+        />
+        <div>
+          <h2 class="text-3xl font-bold text-blue-800 mb-3">Sobre mí</h2>
+          <p class="leading-relaxed">
+            Soy médico especializado en ____________________, con más de 60 años de experiencia clínica,
+            investigativa y docente. He ejercido en instituciones como ____________________, publicando trabajos y libros reconocidos nacionalmente.
+          </p>
+
+          <p class="mt-4 text-gray-600 italic">
+            Mi enfoque integra la medicina basada en evidencia con una visión humana del paciente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBROS -->
+  <section id="libros" class="max-w-5xl mx-auto px-4 mt-12">
+    <div class="bg-white rounded-2xl shadow-lg p-10">
+      <h2 class="text-3xl font-bold text-blue-800 mb-6">Libros publicados</h2>
+      <ul class="space-y-4">
+        <li class="border-l-4 border-blue-700 pl-4">
+          <span class="font-semibold text-lg">Título del libro 1</span> — Editorial, Año  
+          <div class="text-gray-600 text-sm">Descripción breve del contenido…</div>
+        </li>
+        <li class="border-l-4 border-blue-700 pl-4">
+          <span class="font-semibold text-lg">Título del libro 2</span> — Editorial, Año  
+          <div class="text-gray-600 text-sm">Descripción breve del contenido…</div>
+        </li>
+        <li class="border-l-4 border-blue-700 pl-4">
+          <span class="font-semibold text-lg">Título del libro 3</span> — Editorial, Año
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ARTÍCULOS -->
+  <section id="articulos" class="max-w-5xl mx-auto px-4 mt-12">
+    <div class="bg-white rounded-2xl shadow-lg p-10">
+      <h2 class="text-3xl font-bold text-blue-800 mb-6">Artículos y publicaciones</h2>
+      <ul class="space-y-4">
+        <li class="border-l-4 border-blue-700 pl-4">
+          <span class="font-semibold text-lg">Artículo 1</span> — Revista / Año —
+          <a class="text-blue-600 hover:underline font-medium" href="#" target="_blank">PDF</a>
+        </li>
+        <li class="border-l-4 border-blue-700 pl-4">
+          <span class="font-semibold text-lg">Artículo 2</span> — Medio / Año —
+          <a class="text-blue-600 hover:underline font-medium" href="#" target="_blank">Leer online</a>
+        </li>
+        <li class="border-l-4 border-blue-700 pl-4">
+          <span class="font-semibold text-lg">Artículo 3</span> — Otro medio / Año
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="max-w-5xl mx-auto px-4 mt-12 mb-16">
+    <div class="bg-white rounded-2xl shadow-lg p-10">
+      <h2 class="text-3xl font-bold text-blue-800 mb-6">Contacto</h2>
+      <p class="text-lg">
+        📩 Email:
+        <a href="mailto:correo@ejemplo.com" class="text-blue-600 font-semibold hover:underline">
+          correo@ejemplo.com
+        </a>
+      </p>
+      <p class="mt-2 text-gray-700">
+        🌐 LinkedIn — ORCID — ResearchGate
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center text-gray-500 py-6 bg-gray-200">
+    © 2026 Dr. Nombre Apellido — Sitio personal
+  </footer>
+
+</body>
+</html>
