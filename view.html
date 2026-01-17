@@ -20,11 +20,26 @@
     const params = new URLSearchParams(window.location.search);
     const file = params.get("file");
 
+    const viewer = document.getElementById("viewer");
+
     if (!file) {
-      document.getElementById("viewer").outerHTML =
-        "<p class='text-center text-red-600 text-xl'>No se especificó archivo.</p>";
+      viewer.outerHTML = "<p class='text-center text-red-600 text-xl'>No se especificó archivo.</p>";
     } else {
-      document.getElementById("viewer").src = `/docs/${file}`;
+      const ext = file.split('.').pop().toLowerCase();
+      const url = `/docs/${file}`;
+
+      if (ext === "pdf") {
+        viewer.src = url;
+      } else if (ext === "doc" || ext === "docx") {
+        const gview = `https://docs.google.com/viewer?url=${window.location.origin}/docs/${file}&embedded=true`;
+        viewer.src = gview;
+      } else {
+        viewer.outerHTML =
+          `<p class='text-center text-red-600 text-xl'>
+            Archivo no soportado para visualización.<br>
+            <a href="${url}" class="text-blue-600 underline font-semibold">Descargar archivo</a>
+           </p>`;
+      }
     }
   </script>
 
