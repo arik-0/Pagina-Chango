@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ver artículo</title>
+  <style>
+    * { margin: 0; padding: 0; }
+    iframe { width: 100vw; height: 100vh; border: none; }
+  </style>
+</head>
+<body>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const file = params.get("file");
+
+  if (!file) {
+    document.body.innerHTML = "<h2>No se especificó archivo</h2>";
+  } else {
+    const ext = file.split('.').pop().toLowerCase();
+    const localPath = `public/docs/${file}`;
+
+    if (ext === "pdf") {
+      document.body.innerHTML = `<iframe src="${localPath}"></iframe>`;
+    }
+    else if (ext === "doc" || ext === "docx") {
+      const officeUrl =
+        `https://view.officeapps.live.com/op/embed.aspx?src=${window.location.origin}/${localPath}`;
+      document.body.innerHTML = `<iframe src="${officeUrl}"></iframe>`;
+    }
+    else {
+      document.body.innerHTML = `
+        <h2>Formato no soportado</h2>
+        <p>Puedes descargarlo aquí:</p>
+        <a href="${localPath}" download>Descargar "${file}"</a>`;
+    }
+  }
+</script>
+
+</body>
+</html>
