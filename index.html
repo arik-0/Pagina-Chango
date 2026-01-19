@@ -87,44 +87,135 @@
   <div class="bg-white rounded-2xl shadow-lg p-10">
     <h2 class="text-3xl font-bold text-blue-800 mb-6">Artículos y publicaciones</h2>
 
+    <!-- BUSCADOR -->
+    <input
+      id="searchBox"
+      type="text"
+      placeholder="Buscar artículo..."
+      class="mb-4 w-full p-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+    />
+
     <div class="relative">
-      <!-- Botón -->
-      <button id="dropdownBtn" class="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800">
-        Seleccionar artículo ▼
+      <!-- Botón Izquierda -->
+      <button id="prevBtn"
+        class="absolute left-0 top-1/2 -translate-y-1/2 bg-blue-700 text-white px-3 py-1 rounded-full shadow hover:bg-blue-800">
+        ‹
       </button>
 
-      <!-- Contenedor del dropdown -->
-      <ul id="dropdownMenu" class="absolute mt-2 bg-white border shadow-lg rounded-lg w-64 hidden">
-        <li class="px-4 py-2 hover:bg-gray-100">
-          <a href="view.html?file=estar sentado puede matar.pdf">Estar Sentado Puede Matar — PDF</a>
-        </li>
-        <li class="px-4 py-2 hover:bg-gray-100">
-          <a href="view.html?file=el discreto encanto de la medicina alternativa.pdf">El discreto encanto de la medicina alternativa — PDF</a>
-        </li>
-        <li class="px-4 py-2 hover:bg-gray-100">
-          <a href="view.html?file=Nostalgia del abrazo.pdf">Nostalgia del abrazo — PDF</a>
-        </li>
-        <li class="px-4 py-2 hover:bg-gray-100">
-          <a href="view.html?file=PDF Transformar información en conocimiento.pdf">Transformar información en conocimiento — PDF</a>
-        </li>
-        <li class="px-4 py-2 hover:bg-gray-100">
-          <a href="view.html?file=Elegía al Bidé.pdf">Elegia al Bide — PDF</a>
-        </li>
-        <li class="px-4 py-2 hover:bg-gray-100">
-          <a href="view.html?file=La Incertidumbre.pdf">La Incertidumbre — PDF</a>
-        </li>
-      </ul>
+      <!-- Slider -->
+      <div id="slider" class="flex gap-4 overflow-x-auto scroll-smooth px-8 py-4">
+
+        <a data-title="Adherencia terapéutica fallida"
+   href="view.html?file=Adherencia%20terapéutica%20fallida.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  Adherencia terapéutica fallida
+</a>
+
+<a data-title="Artículo NEUROCIENCIAS"
+   href="view.html?file=Artículo%20NEUROCIENCIAS.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  Artículo NEUROCIENCIAS
+</a>
+
+<a data-title="Artículo sobre herencia parental"
+   href="view.html?file=artículo%20sobre%20herencia%20parental.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  Artículo sobre herencia parental
+</a>
+
+<a data-title="Consultorio escenario curso"
+   href="view.html?file=Consultorio%20escenario%20curso.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  Consultorio escenario curso
+</a>
+
+<a data-title="El discreto encanto de la medicina alternativa"
+   href="view.html?file=el%20discreto%20encanto%20de%20la%20medicina%20alternativa.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  El discreto encanto de la medicina alternativa
+</a>
+
+<a data-title="Elegía al Bidé"
+   href="view.html?file=Elegía%20al%20Bidé.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  Elegía al Bidé
+</a>
+
+<a data-title="Esperar la vejez"
+   href="view.html?file=Esperar%20la%20vejez%20PDF.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  Esperar la vejez
+</a>
+
+<a data-title="Estar sentado puede matar"
+   href="view.html?file=estar%20sentado%20puede%20matar.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  Estar sentado puede matar
+</a>
+
+<a data-title="La crisis de los Sartanés"
+   href="view.html?file=La%20crisis%20de%20los%20Sartanés.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  La crisis de los Sartanés
+</a>
+
+<a data-title="La estupidez que a diario nos agobia"
+   href="view.html?file=La%20estupidez%20que%20a%20diario%20nos%20agobia.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  La estupidez que a diario nos agobia
+</a>
+
+<a data-title="La Incertidumbre"
+   href="view.html?file=La%20Incertidumbre.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  La Incertidumbre
+</a>
+
+<a data-title="Nostalgia del abrazo"
+   href="view.html?file=Nostalgia%20del%20abrazo.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  Nostalgia del abrazo
+</a>
+
+<a data-title="Transformar información en conocimiento"
+   href="view.html?file=PDF%20Transformar%20información%20en%20conocimiento.pdf"
+   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
+  Transformar información en conocimiento
+</a>
+
+
+
+      </div>
+
+      <!-- Botón Derecha -->
+      <button id="nextBtn"
+        class="absolute right-0 top-1/2 -translate-y-1/2 bg-blue-700 text-white px-3 py-1 rounded-full shadow hover:bg-blue-800">
+        ›
+      </button>
     </div>
   </div>
 </section>
 
 <script>
-  const btn = document.getElementById("dropdownBtn");
-  const menu = document.getElementById("dropdownMenu");
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
+  const slider = document.getElementById("slider");
+  const cards = document.querySelectorAll(".art-card");
+
+  // mover slider
+  document.getElementById("nextBtn").onclick = () => slider.scrollBy({ left: 300, behavior: "smooth" });
+  document.getElementById("prevBtn").onclick = () => slider.scrollBy({ left: -300, behavior: "smooth" });
+
+  // filtro buscador
+  const searchBox = document.getElementById("searchBox");
+  searchBox.addEventListener("input", () => {
+    const q = searchBox.value.toLowerCase();
+    cards.forEach(card => {
+      const title = card.dataset.title.toLowerCase();
+      card.style.display = title.includes(q) ? "block" : "none";
+    });
   });
 </script>
+
+
 
 
 
