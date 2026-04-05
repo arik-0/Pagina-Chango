@@ -12,12 +12,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   
   <style>
-    body { font-family: 'Montserrat', sans-serif; }
-    /* Ajuste para que el iframe ocupe todo el espacio restante */
-    .viewer-container {
-      height: calc(100vh - 80px);
-    }
-  </style>
+  body { font-family: 'Montserrat', sans-serif; margin: 0; overflow: hidden; }
+  
+  /* Esto hace que el contenedor ocupe el 100% del alto menos el header */
+  .viewer-container {
+    height: calc(100vh - 64px); /* 64px es el alto del header (h-16) */
+    width: 100%;
+  }
+</style>
 </head>
 <body class="bg-slate-100 min-h-screen flex flex-col">
 
@@ -40,11 +42,11 @@
     </div>
   </header>
 
-  <main class="flex-1 p-2 md:p-6 viewer-container">
-    <div id="container" class="w-full h-full bg-white rounded-xl shadow-2xl overflow-hidden border border-slate-200">
-        <iframe id="viewer" class="w-full h-full border-none"></iframe>
-    </div>
-  </main>
+  <main class="viewer-container bg-slate-100">
+  <div id="container" class="w-full h-full bg-white shadow-inner overflow-hidden">
+      <iframe id="viewer" class="w-full h-full border-none"></iframe>
+  </div>
+</main>
 
   <script>
     const params = new URLSearchParams(window.location.search);
