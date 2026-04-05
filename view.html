@@ -3,42 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ver Artículo</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
+  <title>Visualizador de Artículos | Dr. Yelin</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
-  <header class="bg-blue-700 text-white text-center py-4 shadow">
-    <h1 class="text-xl font-semibold">Visualizador de Artículos</h1>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body { font-family: 'Montserrat', sans-serif; }
+    /* Ajuste para que el iframe ocupe todo el espacio restante */
+    .viewer-container {
+      height: calc(100vh - 80px);
+    }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen flex flex-col">
+
+  <header class="bg-slate-900 text-white shadow-lg z-10">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:bg-slate-800 p-2 rounded-full transition-colors" title="Volver al inicio">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+        </a>
+        <h1 id="fileTitle" class="text-sm md:text-base font-semibold truncate max-w-[200px] md:max-w-md uppercase tracking-wider text-slate-300">
+          Cargando documento...
+        </h1>
+      </div>
+      
+      <div class="hidden md:block">
+        <span class="text-xs text-slate-500 font-bold uppercase tracking-tighter">Archivo Científico / Literario</span>
+      </div>
+    </div>
   </header>
 
-  <main class="flex-1 p-4">
-    <iframe id="viewer" class="w-full h-[80vh] border rounded shadow bg-white"></iframe>
+  <main class="flex-1 p-2 md:p-6 viewer-container">
+    <div id="container" class="w-full h-full bg-white rounded-xl shadow-2xl overflow-hidden border border-slate-200">
+        <iframe id="viewer" class="w-full h-full border-none"></iframe>
+    </div>
   </main>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const file = params.get("file");
-
     const viewer = document.getElementById("viewer");
+    const container = document.getElementById("container");
+    const fileTitle = document.getElementById("fileTitle");
 
     if (!file) {
-      viewer.outerHTML = "<p class='text-center text-red-600 text-xl'>No se especificó archivo.</p>";
+      container.innerHTML = `
+        <div class="flex flex-col items-center justify-center h-full text-slate-400 p-6 text-center">
+          <svg class="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          <p class="text-xl font-bold">No se especificó ningún archivo.</p>
+          <a href="index.html" class="mt-4 text-blue-600 underline">Volver a la página principal</a>
+        </div>`;
     } else {
+      // Limpiamos el nombre del archivo para mostrarlo en el header
+      fileTitle.innerText = decodeURIComponent(file).replace(/\.[^/.]+$/, "");
+
       const ext = file.split('.').pop().toLowerCase();
-      const url = `/docs/${file}`;
+      
+      // CAMBIO IMPORTANTE: Asegurate que la carpeta se llame 'docs' o 'pdfs'
+      // Si los archivos están en la misma carpeta que el index, usá solo `${file}`
+      const url = `${file}`; 
 
       if (ext === "pdf") {
         viewer.src = url;
       } else if (ext === "doc" || ext === "docx") {
-        const gview = `https://docs.google.com/viewer?url=${window.location.origin}/docs/${file}&embedded=true`;
+        // NOTA: El visor de Google solo funciona si la web está ONLINE (no localhost)
+        const gview = `https://docs.google.com/viewer?url=${window.location.origin}/${url}&embedded=true`;
         viewer.src = gview;
       } else {
-        viewer.outerHTML =
-          `<p class='text-center text-red-600 text-xl'>
-            Archivo no soportado para visualización.<br>
-            <a href="${url}" class="text-blue-600 underline font-semibold">Descargar archivo</a>
-           </p>`;
+        container.innerHTML = `
+          <div class="flex flex-col items-center justify-center h-full p-6 text-center">
+            <p class="text-slate-600 mb-4 text-lg">Este tipo de archivo (.${ext}) debe descargarse para ser leído.</p>
+            <a href="${url}" download class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-700 transition-all">
+              Descargar Archivo
+            </a>
+            <a href="index.html" class="mt-8 text-slate-400 text-sm underline italic">Volver al inicio</a>
+          </div>`;
       }
     }
   </script>

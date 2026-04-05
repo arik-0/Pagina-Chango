@@ -1,244 +1,183 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Carlos Alberto Yelin</title>
+  <title>Dr. Carlos Alberto Yelin | Medicina e Humanismo</title>
 
-  <!-- Tailwind CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fuente Trebuchet -->
   <style>
-    body { font-family: "Trebuchet MS", Helvetica, Arial, sans-serif; }
+    body { font-family: 'Lora', serif; }
+    h1, h2, h3, nav, .font-sans { font-family: 'Montserrat', sans-serif; }
+    .bg-medical { background-color: #0f172a; } /* Slate 900 */
+    .text-accent { color: #3b82f6; } /* Blue 500 */
   </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-slate-50 text-slate-800 leading-relaxed">
 
-  <!-- HERO -->
-  <header class="relative isolate overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700">
-    <div class="mx-auto max-w-2xl py-24 text-center px-4 text-white">
-      <h1 class="text-5xl font-bold tracking-tight drop-shadow-lg">Dr. Yelin</h1>
-      <p class="mt-3 text-xl opacity-90">Médico Clínico — Escritor — Investigador</p>
-      <p class="mt-6 max-w-md mx-auto text-blue-200 italic opacity-90">
-        “La ciencia avanza cuando nos preguntamos por qué y actuamos para responderlo”.
-      </p>
+  <header class="relative overflow-hidden bg-medical py-24 lg:py-32 text-white">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl"></div>
+    </div>
+    <div class="relative mx-auto max-w-5xl px-6 text-center">
+      <p class="uppercase tracking-[0.3em] text-blue-400 text-sm font-semibold mb-4">Seis décadas de vocación</p>
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">Dr. Carlos Alberto Yelin</h1>
+      <p class="text-xl md:text-2xl font-light text-slate-300 italic">"El buen médico trata la enfermedad, el gran médico trata al paciente"</p>
     </div>
   </header>
 
-  <!-- NAV -->
-  <nav class="bg-white/80 backdrop-blur shadow-md sticky top-0 z-50">
-    <div class="flex justify-center gap-8 py-4 font-semibold text-blue-900">
-      <a href="#sobre-mi" class="hover:text-blue-600">Sobre mí</a>
-      <a href="#libros" class="hover:text-blue-600">Libros</a>
-      <a href="#articulos" class="hover:text-blue-600">Artículos</a>
-      <a href="#contacto" class="hover:text-blue-600">Contacto</a>
+  <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100">
+    <div class="max-w-5xl mx-auto flex justify-center gap-8 py-4 font-semibold text-slate-600 text-xs md:text-sm uppercase tracking-widest">
+      <a href="#historia" class="hover:text-blue-600 transition-colors">Mi Historia</a>
+      <a href="#trayectoria" class="hover:text-blue-600 transition-colors">Trayectoria</a>
+      <a href="#libros" class="hover:text-blue-600 transition-colors">Libros</a>
+      <a href="#articulos" class="hover:text-blue-600 transition-colors">Artículos</a>
     </div>
   </nav>
 
-  <!-- SOBRE MÍ -->
-  <section id="sobre-mi" class="max-w-5xl mx-auto px-4 mt-12">
-    <div class="bg-white rounded-2xl shadow-lg p-10">
-      <div class="flex flex-col md:flex-row items-center gap-8">
-        <img
-          src="https://media.lacapital.com.ar/p/62aa5f795a7ffb0a6c08b9e30c5c5ac3/adjuntos/203/imagenes/024/569/0024569696/1200x675/smart/2018-09-26-lc-59360795jpg.jpg"
-          alt="Foto del Dr."
-          class="rounded-2xl w-56 shadow-lg object-cover"
-        />
-        <div>
-          <h2 class="text-3xl font-bold text-blue-800 mb-3">Sobre mí</h2>
-          <p class="leading-relaxed">
-            Soy médico especializado en ____________________, con más de 60 años de experiencia clínica,
-            investigativa y docente. He ejercido en instituciones como ____________________, publicando trabajos y libros reconocidos nacionalmente.
-          </p>
+  <main class="max-w-4xl mx-auto px-6">
 
-          <p class="mt-4 text-gray-600 italic">
-            Mi enfoque integra la medicina basada en evidencia con una visión humana del paciente.
+    <section id="historia" class="py-20">
+      <div class="grid md:grid-cols-3 gap-12 items-start">
+        <div class="md:col-span-1">
+          <img
+            src="https://media.lacapital.com.ar/p/62aa5f795a7ffb0a6c08b9e30c5c5ac3/adjuntos/203/imagenes/024/569/0024569696/1200x675/smart/2018-09-26-lc-59360795jpg.jpg"
+            alt="Dr. Carlos Alberto Yelin"
+            class="rounded-2xl shadow-2xl w-full grayscale hover:grayscale-0 transition-all duration-500"
+          />
+          <p class="mt-4 text-sm text-slate-500 italic text-center">Médico Cirujano (1964) <br> Doctor en Medicina (1970)</p>
+        </div>
+        <div class="md:col-span-2 space-y-6 text-lg">
+          <h2 class="text-3xl font-bold text-slate-900 mb-4">Vocación desde la infancia</h2>
+          <p>
+            Mi contacto con la medicina nació a los 8 años en un campamento scout, atendiendo una carpa de enfermería cuando nadie más se postulaba. Allí, entre matorrales y raspones, descubrí una inclinación definitiva al auxilio del sufriente.
+          </p>
+          <p>
+            Crecí viendo a mi padre, "Don Isaac", un farmacéutico bondadoso en Santiago del Estero que auxiliaba a una ciudad sin atención pública. De él aprendí los conceptos de esterilización, contaminación y esa mezcla de ciencia y humanidad que hoy llamo <strong>"el curanderismo de mi padre"</strong>.
           </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- LIBROS -->
-  <section id="libros" class="max-w-5xl mx-auto px-4 mt-12">
-    <div class="bg-white rounded-2xl shadow-lg p-10">
-      <h2 class="text-3xl font-bold text-blue-800 mb-6">Libros publicados</h2>
-      <ul class="space-y-4">
-        <li class="border-l-4 border-blue-700 pl-4">
-          <span class="font-semibold text-lg">Título del libro 1</span> — Editorial, Año  
-          <div class="text-gray-600 text-sm">Descripción breve del contenido…</div>
-        </li>
-        <li class="border-l-4 border-blue-700 pl-4">
-          <span class="font-semibold text-lg">Título del libro 2</span> — Editorial, Año  
-          <div class="text-gray-600 text-sm">Descripción breve del contenido…</div>
-        </li>
-        <li class="border-l-4 border-blue-700 pl-4">
-          <span class="font-semibold text-lg">Título del libro 3</span> — Editorial, Año
-        </li>
-      </ul>
-    </div>
-  </section>
+    <section id="trayectoria" class="py-16 border-t border-slate-200">
+      <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">Trayectoria Académica</h2>
+      
+      <div class="space-y-12">
+        <div class="flex flex-col md:flex-row gap-6 border-l-2 border-blue-500 pl-8 relative">
+          <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1"></div>
+          <div class="md:w-1/4 font-sans font-bold text-blue-600">1956 - 1964</div>
+          <div class="md:w-3/4">
+            <h3 class="text-xl font-bold mb-2">Formación en Rosario</h3>
+            <p class="text-slate-600 italic mb-2">Hospital Nacional del Centenario</p>
+            <p>Bajo la influencia de maestros como el Dr. Gutierrez Marquez y el Prof. Juan Martinez, nace mi pasión por la enseñanza. Me desempeñé como ayudante en Anatomía, Patología y Microbiología antes de graduarme como Médico Cirujano.</p>
+          </div>
+        </div>
 
- <!-- ARTÍCULOS -->
-<!-- ARTÍCULOS -->
-<section id="articulos" class="max-w-5xl mx-auto px-4 mt-12">
-  <div class="bg-white rounded-2xl shadow-lg p-10">
-    <h2 class="text-3xl font-bold text-blue-800 mb-6">Artículos y publicaciones</h2>
+        <div class="flex flex-col md:flex-row gap-6 border-l-2 border-slate-300 pl-8 relative">
+           <div class="absolute w-4 h-4 bg-slate-300 rounded-full -left-[9px] top-1"></div>
+          <div class="md:w-1/4 font-sans font-bold text-slate-500">1973 - 1976</div>
+          <div class="md:w-3/4">
+            <h3 class="text-xl font-bold mb-2">Medicina Integral del Adulto</h3>
+            <p>Propuse un cambio pedagógico rompiendo la fragmentación de especialidades, inspirado por William Osler. A pesar del éxito, el proceso militar de 1976 interrumpió esta etapa, resultando en mi alejamiento temporal de la Universidad.</p>
+          </div>
+        </div>
 
-    <!-- BUSCADOR -->
-    <input
-      id="searchBox"
-      type="text"
-      placeholder="Buscar artículo..."
-      class="mb-4 w-full p-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-    />
-
-    <div class="relative">
-      <!-- Botón Izquierda -->
-      <button id="prevBtn"
-        class="absolute left-0 top-1/2 -translate-y-1/2 bg-blue-700 text-white px-3 py-1 rounded-full shadow hover:bg-blue-800">
-        ‹
-      </button>
-
-      <!-- Slider -->
-      <div id="slider" class="flex gap-4 overflow-x-auto scroll-smooth px-8 py-4">
-
-        <a data-title="Adherencia terapéutica fallida"
-   href="view.html?file=Adherencia%20terapéutica%20fallida.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  Adherencia terapéutica fallida
-</a>
-
-<a data-title="Artículo NEUROCIENCIAS"
-   href="view.html?file=Artículo%20NEUROCIENCIAS.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  Artículo NEUROCIENCIAS
-</a>
-
-<a data-title="Artículo sobre herencia parental"
-   href="view.html?file=artículo%20sobre%20herencia%20parental.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  Artículo sobre herencia parental
-</a>
-
-<a data-title="Consultorio escenario curso"
-   href="view.html?file=Consultorio%20escenario%20curso.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  Consultorio escenario curso
-</a>
-
-<a data-title="El discreto encanto de la medicina alternativa"
-   href="view.html?file=el%20discreto%20encanto%20de%20la%20medicina%20alternativa.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  El discreto encanto de la medicina alternativa
-</a>
-
-<a data-title="Elegía al Bidé"
-   href="view.html?file=Elegía%20al%20Bidé.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  Elegía al Bidé
-</a>
-
-<a data-title="Esperar la vejez"
-   href="view.html?file=Esperar%20la%20vejez%20PDF.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  Esperar la vejez
-</a>
-
-<a data-title="Estar sentado puede matar"
-   href="view.html?file=estar%20sentado%20puede%20matar.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  Estar sentado puede matar
-</a>
-
-<a data-title="La crisis de los Sartanés"
-   href="view.html?file=La%20crisis%20de%20los%20Sartanés.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  La crisis de los Sartanés
-</a>
-
-<a data-title="La estupidez que a diario nos agobia"
-   href="view.html?file=La%20estupidez%20que%20a%20diario%20nos%20agobia.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  La estupidez que a diario nos agobia
-</a>
-
-<a data-title="La Incertidumbre"
-   href="view.html?file=La%20Incertidumbre.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  La Incertidumbre
-</a>
-
-<a data-title="Nostalgia del abrazo"
-   href="view.html?file=Nostalgia%20del%20abrazo.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  Nostalgia del abrazo
-</a>
-
-<a data-title="Transformar información en conocimiento"
-   href="view.html?file=PDF%20Transformar%20información%20en%20conocimiento.pdf"
-   class="art-card min-w-[230px] bg-blue-50 hover:bg-blue-100 rounded-xl shadow p-4 text-center font-semibold text-blue-800">
-  Transformar información en conocimiento
-</a>
-
-
-
+        <div class="flex flex-col md:flex-row gap-6 border-l-2 border-blue-500 pl-8 relative">
+            <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1"></div>
+          <div class="md:w-1/4 font-sans font-bold text-blue-600">1998 - 2018</div>
+          <div class="md:w-3/4">
+            <h3 class="text-xl font-bold mb-2">Doctorado y Retiro</h3>
+            <p>Participé activamente en la creación de la Carrera de Doctorado, integrando materias como Epistemología. Tras décadas de docencia y cargos ganados por concurso, decidí mi retiro definitivo de la Universidad en 2018.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Botón Derecha -->
-      <button id="nextBtn"
-        class="absolute right-0 top-1/2 -translate-y-1/2 bg-blue-700 text-white px-3 py-1 rounded-full shadow hover:bg-blue-800">
-        ›
-      </button>
-    </div>
-  </div>
-</section>
+    <section id="libros" class="py-20 border-t border-slate-200">
+      <h2 class="text-3xl font-bold text-slate-900 mb-10">Libros Publicados</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+          <div>
+            <span class="text-blue-500 font-sans font-bold text-xs uppercase tracking-widest">2018 • Laborde Editorial</span>
+            <h3 class="text-2xl font-bold mt-2 mb-4">¿Por qué somos clínicos los clínicos?</h3>
+            <p class="text-slate-600">Un análisis profundo sobre la esencia de la clínica médica y la identidad del profesional frente al paciente.</p>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+          <div>
+            <span class="text-blue-500 font-sans font-bold text-xs uppercase tracking-widest">2024 • Editorial Homo Sapiens</span>
+            <h3 class="text-2xl font-bold mt-2 mb-4">El Maridaje de la Medicina y la literatura</h3>
+            <p class="text-slate-600">Mi obra más reciente, explorando los puentes inseparables entre el arte de curar y el arte de narrar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script>
-  const slider = document.getElementById("slider");
-  const cards = document.querySelectorAll(".art-card");
+    <section id="articulos" class="py-20">
+      <div class="bg-medical rounded-3xl p-10 text-white shadow-2xl overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+          <div>
+            <h2 class="text-3xl font-bold mb-2">Artículos de Divulgación</h2>
+            <p class="text-slate-400">Temas dispersos de medicina y sociedad.</p>
+          </div>
+          <input id="searchBox" type="text" placeholder="Buscar título..." class="bg-slate-800 border border-slate-700 text-white px-4 py-2 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-64">
+        </div>
 
-  // mover slider
-  document.getElementById("nextBtn").onclick = () => slider.scrollBy({ left: 300, behavior: "smooth" });
-  document.getElementById("prevBtn").onclick = () => slider.scrollBy({ left: -300, behavior: "smooth" });
+        <div class="relative group">
+          <button id="prevBtn" class="absolute -left-4 top-1/2 -translate-y-1/2 bg-white text-slate-900 w-10 h-10 rounded-full shadow-xl flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity">←</button>
+          
+          <div id="slider" class="flex gap-6 overflow-x-auto scroll-smooth snap-x pb-6">
+            <a data-title="Adherencia terapéutica fallida" href="view.html?file=Adherencia terapéutica fallida.pdf" class="art-card min-w-[280px] snap-start bg-slate-800 p-6 rounded-2xl hover:bg-slate-700 transition-all border border-slate-700 flex flex-col justify-between">
+              <h3 class="font-semibold text-lg leading-tight">Adherencia terapéutica fallida</h3>
+              <span class="mt-8 text-xs text-blue-400 font-sans font-bold uppercase tracking-widest">Leer Artículo</span>
+            </a>
+            <a data-title="Artículo NEUROCIENCIAS" href="view.html?file=Artículo NEUROCIENCIAS.pdf" class="art-card min-w-[280px] snap-start bg-slate-800 p-6 rounded-2xl hover:bg-slate-700 transition-all border border-slate-700 flex flex-col justify-between">
+                <h3 class="font-semibold text-lg leading-tight">Artículo NEUROCIENCIAS</h3>
+                <span class="mt-8 text-xs text-blue-400 font-sans font-bold uppercase tracking-widest">Leer Artículo</span>
+            </a>
+            </div>
 
-  // filtro buscador
-  const searchBox = document.getElementById("searchBox");
-  searchBox.addEventListener("input", () => {
-    const q = searchBox.value.toLowerCase();
-    cards.forEach(card => {
-      const title = card.dataset.title.toLowerCase();
-      card.style.display = title.includes(q) ? "block" : "none";
-    });
-  });
-</script>
+          <button id="nextBtn" class="absolute -right-4 top-1/2 -translate-y-1/2 bg-white text-slate-900 w-10 h-10 rounded-full shadow-xl flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity">→</button>
+        </div>
+      </div>
+    </section>
 
+    <section id="contacto" class="py-20 text-center">
+      <h2 class="text-3xl font-bold mb-6">Contacto</h2>
+      <a href="mailto:correo@ejemplo.com" class="text-2xl font-semibold text-blue-600 hover:underline decoration-blue-200 underline-offset-8 transition-all">
+        correo@ejemplo.com
+      </a>
+      <p class="mt-8 text-slate-500 font-sans text-sm tracking-widest uppercase">Rosario, Argentina</p>
+    </section>
 
+  </main>
 
-
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="max-w-5xl mx-auto px-4 mt-12 mb-16">
-    <div class="bg-white rounded-2xl shadow-lg p-10">
-      <h2 class="text-3xl font-bold text-blue-800 mb-6">Contacto</h2>
-      <p class="text-lg">
-        📩 Email:
-        <a href="mailto:correo@ejemplo.com" class="text-blue-600 font-semibold hover:underline">
-          correo@ejemplo.com
-        </a>
-      </p>
-      <p class="mt-2 text-gray-700">
-        🌐 LinkedIn — ORCID — ResearchGate
-      </p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="text-center text-gray-500 py-6 bg-gray-200">
-    © 2026 Dr. Nombre Apellido — Sitio personal
+  <footer class="bg-slate-100 py-10 text-center text-slate-400 text-sm border-t border-slate-200">
+    <p>© 2026 Dr. Carlos Alberto Yelin — Comprometido con la Medicina Integral</p>
   </footer>
+
+  <script>
+    const slider = document.getElementById("slider");
+    const cards = document.querySelectorAll(".art-card");
+
+    document.getElementById("nextBtn").onclick = () => slider.scrollBy({ left: 320, behavior: "smooth" });
+    document.getElementById("prevBtn").onclick = () => slider.scrollBy({ left: -320, behavior: "smooth" });
+
+    const searchBox = document.getElementById("searchBox");
+    searchBox.addEventListener("input", () => {
+      const q = searchBox.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        card.style.display = title.includes(q) ? "flex" : "none";
+      });
+    });
+  </script>
 
 </body>
 </html>
