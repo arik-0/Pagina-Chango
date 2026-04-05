@@ -50,10 +50,21 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const file = params.get("file");
-    const viewer = document.getElementById("viewer");
-    const container = document.getElementById("container");
-    const fileTitle = document.getElementById("fileTitle");
+const file = params.get("file");
+const viewer = document.getElementById("viewer");
+const fileTitle = document.getElementById("fileTitle");
+
+if (file) {
+    // 1. Cargamos el PDF (esto tiene que ser exacto)
+    viewer.src = file; 
+
+    // 2. Limpiamos el nombre para el título visual
+    let cleanName = decodeURIComponent(file)
+        .replace("docs/", "")  // Quitamos la carpeta
+        .replace(".pdf", "");  // Quitamos la extensión
+    
+    fileTitle.innerText = cleanName.toUpperCase(); // Opcional: lo dejamos en mayúsculas solo visualmente
+}
 
     if (!file) {
       container.innerHTML = `
