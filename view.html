@@ -50,21 +50,10 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-const file = params.get("file");
-const viewer = document.getElementById("viewer");
-const fileTitle = document.getElementById("fileTitle");
-
-if (file) {
-    // 1. Cargamos el PDF (esto tiene que ser exacto)
-    viewer.src = file; 
-
-    // 2. Limpiamos el nombre para el título visual
-    let cleanName = decodeURIComponent(file)
-        .replace("docs/", "")  // Quitamos la carpeta
-        .replace(".pdf", "");  // Quitamos la extensión
-    
-    fileTitle.innerText = cleanName.toUpperCase(); // Opcional: lo dejamos en mayúsculas solo visualmente
-}
+    const file = params.get("file");
+    const viewer = document.getElementById("viewer");
+    const container = document.getElementById("container");
+    const fileTitle = document.getElementById("fileTitle");
 
     if (!file) {
       container.innerHTML = `
@@ -74,28 +63,39 @@ if (file) {
           <a href="index.html" class="mt-4 text-blue-600 underline">Volver a la página principal</a>
         </div>`;
     } else {
-      // Limpiamos el nombre del archivo para mostrarlo en el header
-      fileTitle.innerText = decodeURIComponent(file).replace(/\.[^/.]+$/, "");
+      const rawFile = decodeURIComponent(file).trim();
+      const normalizedFile = rawFile.startsWith("/") ? rawFile.slice(1) : rawFile;
+      const absoluteUrl = new URL(normalizedFile, window.location.href).toString();
+      const displayName = normalizedFile.replace(/^docs\//, "").replace(/\.[^/.]+$/, "");
+      const ext = normalizedFile.split('.').pop().toLowerCase();
 
-      const ext = file.split('.').pop().toLowerCase();
-      
-      // CAMBIO IMPORTANTE: Asegurate que la carpeta se llame 'docs' o 'pdfs'
-      // Si los archivos están en la misma carpeta que el index, usá solo `${file}`
-      const url = `${file}`; 
+      fileTitle.innerText = displayName || "Documento";
 
       if (ext === "pdf") {
-        viewer.src = url;
-      } else if (ext === "doc" || ext === "docx") {
-        // NOTA: El visor de Google solo funciona si la web está ONLINE (no localhost)
-        const gview = `https://docs.google.com/viewer?url=${window.location.origin}/${url}&embedded=true`;
+        viewer.src = absoluteUrl;
+      } else if (["doc", "docx", "odt"].includes(ext)) {
+        const gview = `https://docs.google.com/viewer?url=${encodeURIComponent(absoluteUrl)}&embedded=true`;
         viewer.src = gview;
+      } else if (["jpg", "jpeg", "png", "gif", "webp", "svg", "bmp"].includes(ext)) {
+        container.innerHTML = `
+          <div class="flex flex-col items-center justify-center h-full overflow-auto bg-slate-50 p-6">
+            <img src="${absoluteUrl}" alt="${displayName}" class="max-w-full max-h-[calc(100vh-180px)] object-contain rounded-xl shadow-lg" />
+            <div class="mt-4 flex flex-wrap gap-3 justify-center">
+              <a href="${absoluteUrl}" download class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-blue-700 transition-all">Descargar imagen</a>
+              <a href="index.html" class="text-slate-500 underline">Volver al inicio</a>
+            </div>
+          </div>`;
+      } else if (["ppt", "pptx"].includes(ext)) {
+        const officeViewer = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}`;
+        viewer.src = officeViewer;
       } else {
         container.innerHTML = `
           <div class="flex flex-col items-center justify-center h-full p-6 text-center">
-            <p class="text-slate-600 mb-4 text-lg">Este tipo de archivo (.${ext}) debe descargarse para ser leído.</p>
-            <a href="${url}" download class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-700 transition-all">
-              Descargar Archivo
-            </a>
+            <p class="text-slate-600 mb-4 text-lg">Este archivo no tiene un visor incorporado, pero podés abrirlo o descargarlo.</p>
+            <div class="flex flex-wrap gap-3 justify-center">
+              <a href="${absoluteUrl}" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-700 transition-all">Abrir archivo</a>
+              <a href="${absoluteUrl}" download class="bg-slate-200 text-slate-700 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-slate-300 transition-all">Descargar</a>
+            </div>
             <a href="index.html" class="mt-8 text-slate-400 text-sm underline italic">Volver al inicio</a>
           </div>`;
       }
